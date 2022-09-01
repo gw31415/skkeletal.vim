@@ -6,8 +6,8 @@
 
 現在同梱している機能は以下のとおりです。
 
-    - 辞書のダウンロード機能
-    - Dvorak配列ユーザー向けの設定
+- 辞書のダウンロード機能
+- Dvorak配列ユーザー向けの設定
 
 ## Install
 [skkeleton](https://github.com/vim-skk/skkeleton) に依存しているのでインストールしてください。
