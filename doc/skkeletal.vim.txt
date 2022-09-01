@@ -1,0 +1,54 @@
+*skkeletal.vim.txt*
+gw31415                                                                     *skkeletal.vim*
+
+=========================================================================================
+INTRODUCTION                                                       *skkeletal-introduction*
+
+*skkeletal.vim* は、日本語入力システム |skkeleton| (https://github.com/vim-skk/skkeleton)
+に関連する、個人的に .vimrc(init.vim) に書きたくない設定をプラグインにしたものです。
+
+現在同梱している機能は以下のとおりです。
+
+    - 辞書のダウンロード機能
+    - Dvorak配列ユーザー向けの設定
+
+=========================================================================================
+CONFIG                                                                   *skkeletal-config*
+
+skkeleton#config({table})                                              *skkeleton#config()*
+        |skkeleton| の skkeleton#config({table}) を置き換える関数です。
+        {table} には skkeleton-config の引数と同様のキーを用いることができますが、
+        以下のキーや動作を追加しています。
+
+globalJisyo                                                  *skkeletal-config-globalJisyo*
+        (デフォルト "/usr/share/skk/SKK-JISYO.L")
+        基本的には |skkeleton-config-globalJisyo| の仕様と同様ですが、
+        skkeletalでは辞書のダウンロード機能が追加されます。
+        これが明示的に指定されていて、なおかつその辞書ファイルが
+        存在しなかった際、cURLを用いて辞書をダウンロードします。
+        ダウンロード元は https://openlab.ring.gr.jp/skk/skk/dic/SKK-JISYO.L
+        となります。親ディレクトリは自動で生成されます。
+
+dvorak                                                             *skkeletal-config-dvorak*
+        (デフォルト v:null)
+        これが明示的に指定されていて、なおかつ v:false でない場合は
+        Dvorak配列向けの設定を行います。
+        Dictionaryを指定することもでき、その場合は以下の機能を個別に
+        設定することができます。
+
+dvorak-dvorakJp                                           *skkeletal-config-dvorak-dvorakJp*
+        (デフォルト v:true)
+        有効の際は DvorakJp のかなテーブルを追加設定します。
+        SKKの操作性との兼ね合いで、対応しているのは
+        - 'c'による か行 の入力
+        - 'n'や'h'を用いた拗音の入力
+        のみとなっています。
+
+dvorak-registerSelectCandidateKeys     *skkeletal-config-dvorak-registerSelectCandidateKeys*
+        (デフォルト v:true)
+        有効の際は |skkeleton-config-select-candidate-keys| を "aoeuhtn"
+        に設定します。
+
+
+
+vim:tw=100:ts=8:ft=help:norl:
