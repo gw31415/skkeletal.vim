@@ -23,7 +23,7 @@ function s:save_jisyo(path) abort
 			if has('nvim')
 				let curl_timeout = 5
 				let notify_record = v:lua.vim.notify(dl_startmsg, 2, {'title': dl_title, 'timeout': v:false})
-				call jobstart(['curl', '-m', curl_timeout, '--output', path, '--create-dirs', 'https://openlab.ring.gr.jp/skk/skk/dic/SKK-JISYO.L'],
+				call jobstart(['curl', '-m', curl_timeout, '--output', path, '--create-dirs', 'http://openlab.jp/skk/skk/dic/SKK-JISYO.L'],
 							\{'on_exit': {j,d,e->filereadable(path)?
 							\v:lua.vim.notify('Download Finished.', 2, {'title': dl_title, 'replace': notify_record, 'timeout': 2})
 							\:v:lua.vim.notify('Download Failed.', 1, {'title': dl_title, 'replace': notify_record, 'timeout': 2})},
