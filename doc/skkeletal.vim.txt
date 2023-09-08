@@ -4,7 +4,7 @@ gw31415                                                                     *skk
 =========================================================================================
 INTRODUCTION                                                       *skkeletal-introduction*
 
-*skkeletal.vim* は、日本語入力システム |skkeleton| (https://github.com/vim-skk/skkeleton)
+|skkeletal.vim| は、日本語入力システム |skkeleton| (https://github.com/vim-skk/skkeleton)
 に関連する、個人的に .vimrc(init.vim) に書きたくない設定をプラグインにしたものです。
 
 現在同梱している機能は以下のとおりです。
