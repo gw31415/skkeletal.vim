@@ -6,7 +6,7 @@ function! s:vim_finished(path) abort
 	end
 endfunction
 function s:save_jisyo(path) abort
-		let path = expand(a:path)
+		let path = a:path
 		let dl_title = 'skkeletal Jisyo Downloader'
 		let dl_startmsg = 'Jisyo-download starting....'
 		if !filereadable(path)
@@ -41,7 +41,10 @@ function! skkeletal#config(table) abort
 	let opts = a:table
 
 	if has_key(opts, 'globalJisyo')
-		call s:save_jisyo(opts['globalJisyo'])
+		let path = expand(opts['globalJisyo'])
+		call s:save_jisyo(path)
+		call remove(opts, 'globalJisyo')
+		let opts['globalDictionaries'] = [path]
 	endif
 
 	if has_key(opts, 'dvorak')
